@@ -26,7 +26,11 @@ jobs:
   - script: |
         export CI=azure
         export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
+<<<<<<< HEAD
         .scripts/run_docker_build.sh
+=======
+        .azure-pipelines/run_docker_build.sh
+>>>>>>> master
     displayName: Run docker build
     env:
       BINSTAR_TOKEN: $(BINSTAR_TOKEN)
