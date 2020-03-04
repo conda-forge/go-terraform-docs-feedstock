@@ -7,13 +7,13 @@ package:
   version: {{ version }}
 
 source:
-    url: https://github.com/segmentio/terraform-docs/archive/v{{version}}.tar.gz
-    sha256: 005957c5c5d56a27e60ca735128231f68c3f099b433a7041a0f1591bee59fbd0
+  url: https://github.com/segmentio/terraform-docs/archive/v{{ version }}.tar.gz
+  sha256: 005957c5c5d56a27e60ca735128231f68c3f099b433a7041a0f1591bee59fbd0
 
 build:
   number: 0
   script:
-    - go install -v
+    - go install -v .
 
 requirements:
   build:
@@ -29,7 +29,7 @@ about:
   home: https://github.com/segmentio/terraform-docs
   license: MIT
   license_family: MIT
-  license_file: {{ pkg_src }}/LICENSE
+  license_file: LICENSE
   summary: 'Generate docs from Terraform modules'
 
 extra:
