@@ -1,6 +1,6 @@
 {% set version = "0.8.2" %}
 {% set name = terraform-docs %}
-{% set pkg_src = ('src/'+import_path).replace("/", os.sep) %}
+
 
 package:
   name: go-{{ name|lower }}
