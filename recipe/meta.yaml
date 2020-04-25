@@ -3,10 +3,10 @@
 
 package:
   name: go-{{ name|lower }}
-  version: {{version}}
+  version: {{ version }}
 
 source:
-  url: https://github.com/segmentio/{{ name }}/archive/v{{version}}.tar.gz
+  url: https://github.com/segmentio/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: 005957c5c5d56a27e60ca735128231f68c3f099b433a7041a0f1591bee59fbd0
 
 build:
