@@ -5,11 +5,9 @@ Home: https://github.com/segmentio/terraform-docs
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/go-terraform-docs-feedstock/blob/master/LICENSE.txt)
 
 Summary: Generate docs from Terraform modules
-
-
 
 Current build status
 ====================
