@@ -10,7 +10,7 @@ source:
   sha256: 0f409934c2e1a57bcebb5f3b2f4bd44c31981f55e861413924bd2605a03f4c5c
 
 build:
-  number: 0
+  number: 1
   script:
     - go install -v -ldflags "-X main.version={{ version }}" .
 
@@ -34,5 +34,6 @@ about:
 
 extra:
   recipe-maintainers:
+    - mxr-conda
     - andrew-mcgrath
     - pierrsc
