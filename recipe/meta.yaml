@@ -1,5 +1,5 @@
 {% set name = "terraform-docs" %}
-{% set version = "0.11.2" %}
+{% set version = "0.13.0" %}
 
 package:
   name: go-{{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/segmentio/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 0f409934c2e1a57bcebb5f3b2f4bd44c31981f55e861413924bd2605a03f4c5c
+  sha256: f1d05a31c9257959f505cac9e90089f70560e944edf3202e1d89a8fe7af5d152
 
 build:
   number: 0
