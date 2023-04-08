@@ -10,9 +10,12 @@ source:
   sha256: e370fd106ca74caebc8632834cc28412a3a6a160952392da71f213515bba2085
 
 build:
-  number: 0
+  number: 1
   script:
-    - go install -v -ldflags "-X main.version={{ version }}" .
+    - go install -v -ldflags "-X main.version={{ version }}" .  # [not arm64]
+    # Call "go build" directly when cross-compiling because GOBIN cannot be set for "go install" when cross-compiling
+    # See https://github.com/golang/go/issues/57485
+    - go build -o "{{ environ.get('PREFIX') }}/bin/terraform-docs" -v -ldflags "-X main.version={{ version }}" .  # [arm64]
 
 requirements:
   build:
