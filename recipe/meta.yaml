@@ -1,5 +1,5 @@
 {% set name = "terraform-docs" %}
-{% set version = "0.16.0" %}
+{% set version = "0.18.0" %}
 
 package:
   name: go-{{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/segmentio/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: e370fd106ca74caebc8632834cc28412a3a6a160952392da71f213515bba2085
+  sha256: ed4c51a8f8be8f9cf5117331005b200d807f362604447ddeb6781c744e5f4743
 
 build:
-  number: 1
+  number: 0
   script:
     - go install -v -ldflags "-X main.version={{ version }}" .  # [not arm64]
     # Call "go build" directly when cross-compiling because GOBIN cannot be set for "go install" when cross-compiling
