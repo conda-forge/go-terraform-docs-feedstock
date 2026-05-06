@@ -1,5 +1,5 @@
 {% set name = "terraform-docs" %}
-{% set version = "0.22.0" %}
+{% set version = "0.23.0" %}
 
 package:
   name: go-{{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/terraform-docs/terraform-docs/archive/v{{ version }}.tar.gz
-  sha256: 336115a1d3a7a55a7295f5768ecc0064c86ed8addc0b0ea27fdfd50b2116dd96
+  sha256: 880c9a174ea71a87cc42ba5228bdc800841afa3b2c18e986a4ae13ea767e0940
 
 build:
   number: 0
