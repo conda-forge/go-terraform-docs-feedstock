@@ -1,0 +1,56 @@
+context:
+  version: "0.24.0"
+
+package:
+  name: go-terraform-docs
+  version: ${{ version }}
+
+source:
+  url: https://github.com/terraform-docs/terraform-docs/archive/v${{ version }}.tar.gz
+  sha256: e3c971a1f2a02732d964e19e65c901b4e02cca62c4b748c05d22e9690d055540
+  target_directory: src
+
+build:
+  number: 1
+  script:
+    env:
+      CGO_ENABLED: "0"
+    content:
+      - cd src
+      - go-licenses save . --save_path ../library_licenses --ignore github.com/terraform-docs/terraform-docs
+      - if: unix
+        then: go build -trimpath -ldflags "-s -w -X main.version=${{ version }}" -o $PREFIX/bin/terraform-docs
+        else: go build -trimpath -ldflags "-s -X main.version=${{ version }}" -o %PREFIX%\bin\terraform-docs.exe
+
+requirements:
+  build:
+    - ${{ compiler("go-nocgo") }}
+    - go-licenses
+
+tests:
+  - script:
+      - terraform-docs --help
+      - terraform-docs --version | rg ${{ version }}
+    requirements:
+      run:
+        - ripgrep
+  - package_contents:
+      bin:
+        - terraform-docs
+      strict: true
+
+about:
+  homepage: https://github.com/terraform-docs/terraform-docs
+  repository: https://github.com/terraform-docs/terraform-docs
+  license: MIT
+  license_file:
+    - src/LICENSE
+    - library_licenses/
+  summary: Generate docs from Terraform modules
+
+extra:
+  recipe-maintainers:
+    - mxr-conda
+    - andrew-mcgrath
+    - pierrsc
+    - dhirschfeld
