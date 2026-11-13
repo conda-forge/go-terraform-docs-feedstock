@@ -1,8 +1,7 @@
-build_platform:
-  osx_arm64: osx_64
 provider:
   win: azure
   linux_aarch64: default
+  osx_arm64: default
 bot:
   automerge: true
 conda_forge_output_validation: true
